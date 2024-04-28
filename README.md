@@ -1,6 +1,6 @@
 # Eatbite
 
-* Login
+* Login and logout
 * Signup
 * Cloudinary to use pictures and uploading images
 * Able to add restaurant owner and restaurant
