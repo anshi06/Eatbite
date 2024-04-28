@@ -8,3 +8,4 @@
 
 
 Make sure users are able to see restraunts while visiting the app , but not able to pay without auth
+Make sure to remove warnings related with redux state update
