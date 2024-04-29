@@ -49,15 +49,13 @@ module.exports = {
     foodCategory
   ) {
     try {
-      let category=await Category.findOne({name:foodCategory})
+      let category = await Category.findOne({ name: foodCategory });
       let query = { restaurant: restaurantId };
-      console.log(nonveg)
-      if (vegetarian == "true") {
+      if (nonveg.trim() == "true") {
+        query.isVegetarian = false;
+      } else if (vegetarian.trim() == "true") {
         query.isVegetarian = true;
-      }
-
-      if (nonveg == "true") query.vegetarian = false;
-      if (seasonal == "true") query.isSeasonal = true;
+      } else if (seasonal.trim() == "true") query.isSeasonal = true;
       if (foodCategory) query.foodCategory = category;
 
       const foods = await Food.find(query).populate([

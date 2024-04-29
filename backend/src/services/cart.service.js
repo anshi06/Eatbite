@@ -4,7 +4,7 @@ const Food = require("../models/food.model");
 
 module.exports = {
   async createCart(user) {
-    const cart = new Cart({ customer: user });
+    const cart = await new Cart({ customer: user });
     const createdCart = await cart.save();
     return createdCart;
   },

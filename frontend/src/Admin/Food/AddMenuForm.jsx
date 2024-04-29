@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { uploadToCloudinary } from "../utils/UploadToCloudnary";
 import { createMenuItem } from "../../State/Customers/Menu/menu.action";
+import { useNavigate } from "react-router-dom";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -69,6 +70,7 @@ const initialValues = {
 
 const AddMenuForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
   const { restaurant, ingredients, auth ,menu} = useSelector((store) => store);
   const [uploadImage, setUploadingImage] = useState("");
@@ -80,7 +82,7 @@ const AddMenuForm = () => {
       values.restaurantId = restaurant.usersRestaurant._id;
 
       dispatch(createMenuItem({ menu: values, jwt: auth.jwt || jwt }));
-      console.log("values ----- ", values);
+      setTimeout(() => navigate('/admin/restaurant'), 500)
     },
   });
 

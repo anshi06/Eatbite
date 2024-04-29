@@ -32,50 +32,41 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Create, Remove } from "@mui/icons-material";
 
 const MenuItemTable = ({ isDashboard, name }) => {
-  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { menu, ingredients, restaurant,auth } = useSelector((store) => store);
+  const { menu, ingredients, restaurant, auth } = useSelector((store) => store);
+  console.log(menu, restaurant)
   const { id } = useParams();
-  const jwt=localStorage.getItem("jwt");
+  const jwt = localStorage.getItem("jwt");
 
   useEffect(() => {
-    
-      if(restaurant.usersRestaurant){
-       dispatch( getMenuItemsByRestaurantId({
-        restaurantId: restaurant.usersRestaurant?._id,
-        jwt: localStorage.getItem("jwt"),
-        // seasonal: false,
-        // vegetarian: false,
-        // nonveg: false,
-        foodCategory: "",
-      }));
-      }
-      
-    
-  }, [ingredients.update,restaurant.usersRestaurant]);
-
-  // console.log(
-  //   "-------- ",
-  //   menu.menuItems[1].ingredients,
-  //   categorizedIngredients(menu.menuItems[1].ingredients)
-  // );
-
-  
+    if (restaurant.usersRestaurant) {
+      dispatch(
+        getMenuItemsByRestaurantId({
+          restaurantId: restaurant.usersRestaurant?._id,
+          jwt: localStorage.getItem("jwt"),
+          // seasonal: false,
+          // vegetarian: false,
+          // nonveg: false,
+          foodCategory: "",
+        })
+      );
+    }
+  }, [ingredients.update, restaurant.usersRestaurant]);
 
   const handleFoodAvialability = (foodId) => {
-    dispatch(updateMenuItemsAvailability({foodId,jwt:auth.jwt || jwt}));
+    dispatch(updateMenuItemsAvailability({ foodId, jwt: auth.jwt || jwt }));
   };
 
   const handleDeleteFood = (foodId) => {
-    dispatch(deleteFoodAction({foodId,jwt:auth.jwt || jwt}));
+    dispatch(deleteFoodAction({ foodId, jwt: auth.jwt || jwt }));
   };
 
   return (
     <Box width={"100%"}>
       <Card className="mt-1">
         <CardHeader
-          title={name}
+          title={name || ""}
           sx={{
             pt: 2,
             alignItems: "center",
@@ -95,9 +86,7 @@ const MenuItemTable = ({ isDashboard, name }) => {
                 <TableCell>Title</TableCell>
                 {/* <TableCell sx={{ textAlign: "center" }}>Category</TableCell> */}
                 {!isDashboard && (
-                  <TableCell sx={{ textAlign: "" }}>
-                    Ingredients
-                  </TableCell>
+                  <TableCell sx={{ textAlign: "" }}>Ingredients</TableCell>
                 )}
                 <TableCell sx={{ textAlign: "center" }}>Price</TableCell>
                 {/* <TableCell sx={{ textAlign: "center" }}>Quantity</TableCell> */}
@@ -109,30 +98,27 @@ const MenuItemTable = ({ isDashboard, name }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {menu.menuItems?.map((item) => (
+              {menu?.menuItems?.map((item) => (
                 <TableRow
                   hover
                   key={item._id}
                   sx={{
                     "&:last-of-type td, &:last-of-type th": { border: 0 },
-                  }}
-                >
+                  }}>
                   <TableCell>
                     {" "}
-                    <Avatar alt={item.name} src={item.images[0]} />{" "}
+                    <Avatar alt={item?.name} src={item.images[0]} />{" "}
                   </TableCell>
 
                   <TableCell
-                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}
-                  >
+                    sx={{ py: (theme) => `${theme.spacing(0.5)} !important` }}>
                     <Box sx={{ display: "flex", flexDirection: "column" }}>
                       <Typography
                         sx={{
                           fontWeight: 500,
                           fontSize: "0.875rem !important",
-                        }}
-                      >
-                        {item.name}
+                        }}>
+                        {item?.name ?? ""}
                       </Typography>
                       <Typography variant="caption">{item.brand}</Typography>
                     </Box>
@@ -151,8 +137,7 @@ const MenuItemTable = ({ isDashboard, name }) => {
                             ].map((ingredient, index) => (
                               <div
                                 key={ingredient._id}
-                                className="flex gap-1 items-center"
-                              >
+                                className="flex gap-1 items-center">
                                 <div>
                                   <HorizontalRuleIcon
                                     sx={{ fontSize: "1rem" }}
@@ -160,9 +145,8 @@ const MenuItemTable = ({ isDashboard, name }) => {
                                 </div>
                                 <div
                                   key={ingredient._id}
-                                  className="flex gap-4 items-center"
-                                >
-                                  <p>{ingredient.name}</p>
+                                  className="flex gap-4 items-center">
+                                  <p>{ingredient?.name ?? ""}</p>
                                 </div>
                               </div>
                             ))}
@@ -179,8 +163,7 @@ const MenuItemTable = ({ isDashboard, name }) => {
                     <Button
                       color={item.available ? "success" : "error"}
                       variant="text"
-                      onClick={() => handleFoodAvialability(item._id)}
-                    >
+                      onClick={() => handleFoodAvialability(item._id)}>
                       {item.available ? "in stock" : "out of stock"}
                     </Button>
                   </TableCell>
@@ -201,8 +184,7 @@ const MenuItemTable = ({ isDashboard, name }) => {
 
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={menu.loading}
-      >
+        open={menu.loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
     </Box>

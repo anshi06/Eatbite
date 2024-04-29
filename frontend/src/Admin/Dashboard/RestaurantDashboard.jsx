@@ -5,10 +5,6 @@ import { getMenuItemsByRestaurantId } from "../../State/Customers/Menu/menu.acti
 import { Grid } from "@mui/material";
 import OrdersTable from "../Orders/OrderTable";
 import MenuItemTable from "../Food/MenuItemTable";
-import AvgCard from "../ReportCard/ReportCard";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import SellIcon from "@mui/icons-material/Sell";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
 
 const RestaurantDashboard = () => {
   const { id } = useParams();

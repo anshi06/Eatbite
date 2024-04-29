@@ -64,8 +64,6 @@ module.exports = {
       const { id } = req.params;
       console.log('restaurant id',id)
       const restaurant = await restaurantService.updateRestaurantStatus(id.toString());
-
-      console.log('restaurant id',id)
       res.status(200).json(restaurant);
     } catch (error) {
       if (
