@@ -47,7 +47,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { cart, auth } = useSelector((store) => store);
   const [openAddressModal, setOpenAddressModal] = useState(false);
-  console.log("cart ", cart);
 
   const handleCloseAddressModal = () => {
     setOpenAddressModal(false);
@@ -63,7 +62,7 @@ const Cart = () => {
     const data = {
       jwt: localStorage.getItem("jwt"),
       order: {
-        restaurantId: cart.cartItems[0].food?.restaurant._id,
+        restaurantId: cart?.cartItems[0].food?.restaurant._id,
         deliveryAddress: {
           fullName: auth.user?.fullName,
           streetAddress: values.streetAddress,
@@ -84,7 +83,7 @@ const Cart = () => {
     const data = {
       jwt: localStorage.getItem("jwt"),
       order: {
-        restaurantId: cart.cartItems[0].food.restaurant._id,
+        restaurantId: cart?.cartItems[0].food.restaurant._id,
         deliveryAddress: deliveryAddress,
       },
     };
@@ -97,7 +96,7 @@ const Cart = () => {
 
   return (
     <Fragment>
-      {cart.cartItems.length > 0 ? (
+      {cart?.cartItems?.length > 0 ? (
         <main className="lg:flex justify-between">
           <section className="lg:w-[30%] space-y-6 lg:min-h-screen pt-10">
             {cart.cartItems.map((item, i) => (

@@ -1,6 +1,6 @@
 export default function WhyChooseCustomer() {
   return (
-    <section className="py-9 bg-gray-200 mt-3">
+    <section className="py-9 bg-gray-300 mt-3">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-center mb-6 text-yellow-700">
           Why Choose Us ?

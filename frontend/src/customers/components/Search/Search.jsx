@@ -36,7 +36,7 @@ const Search = () => {
         </div>
       </div>
       <div className=" mt-7">
-        {menu.search.map((item) => (
+        {menu?.search.map((item) => (
           <SearchDishCard item={item} />
         ))}
       </div>

@@ -79,7 +79,12 @@ module.exports = {
         ];
       }
 
-      const foods = await Food.find(query);
+      const foods = await Food.find(query).populate({
+        path: "restaurant",
+        populate: {
+          path: "address",
+        },
+      });
       return foods;
     } catch (error) {
       throw new Error(`Failed to search for food: ${error.message}`);

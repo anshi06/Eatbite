@@ -56,19 +56,6 @@ const HomePage = () => {
             culinary creations to a wide audience of hungry diners, effortlessly
             expanding your reach and boosting your business.
           </p>
-          {/* <p>
-            Welcome to EatBite, your ultimate destination for culinary
-            convenience! At Eatbite, we're passionate about bringing the world's
-            flavors right to your fingertips. Whether you're craving comforting
-            classics or daring delicacies, our user-friendly food ordering app
-            connects you with a diverse array of local eateries and beloved
-            restaurants. From bustling bistros to hidden gems, we've curated a
-            selection of establishments to satisfy every palate and preference.
-            With just a few taps, indulge in the convenience of ordering your
-            favorite dishes for delivery or pickup, all within the palm of your
-            hand. Join us on a journey of flavor exploration and culinary
-            delight with Eatbite - where convenience meets culinary excellence."
-          </p> */}
           <Button
             variant="contained"
             color="primary"
