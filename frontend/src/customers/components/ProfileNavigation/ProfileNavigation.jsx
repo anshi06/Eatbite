@@ -4,6 +4,7 @@ import { Divider, Drawer, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import LogoutIcon from "@mui/icons-material/Logout";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import SkipPreviousSharpIcon from '@mui/icons-material/SkipPreviousSharp';
 import HomeIcon from "@mui/icons-material/Home";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import { useDispatch } from "react-redux";
@@ -12,6 +13,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import EventIcon from "@mui/icons-material/Event";
 
 const menu = [
+  { title: "Go Back", icon: <SkipPreviousSharpIcon/> },
   { title: "Orders", icon: <ShoppingBagIcon /> },
   { title: "Favorites", icon: <FavoriteIcon /> },
   { title: "Address", icon: <HomeIcon /> },
@@ -32,7 +34,9 @@ const ProfileNavigation = ({ handleClose, open }) => {
 
   const handleNavigate = (item) => {
     navigate(`/my-profile/${item.title.toLowerCase()}`);
-    if (item.title === "Logout") {
+    if (item.title === "Go Back") {
+      navigate("/");
+    } else if (item.title === "Logout") {
       handleLogout();
       navigate("/");
     }
@@ -53,8 +57,7 @@ const ProfileNavigation = ({ handleClose, open }) => {
             <>
               <div
                 onClick={() => handleNavigate(item)}
-                className="px-5 flex items-center space-x-5 cursor-pointer"
-              >
+                className="px-5 flex items-center space-x-5 cursor-pointer">
                 {item.icon}
                 <span>{item.title}</span>
               </div>

@@ -93,6 +93,11 @@ const Restaurant = () => {
 
   return (
     <>
+      {!jwt && (
+        <div className="bg-yellow-200 text-yellow-800 p-4 mb-4 text-center">
+          <p class="font-semibold">Warning: Please login to access this feature.</p>
+        </div>
+      )}
       <div className="px-2 lg:px-20 ">
         <section>
           <h3 className="text-gray-500 py-2 mt-10">

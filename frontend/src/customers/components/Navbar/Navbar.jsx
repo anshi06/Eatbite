@@ -1,14 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import PersonIcon from "@mui/icons-material/Person";
-import {
-  Avatar,
-  Badge,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Avatar, Badge, IconButton, Menu, MenuItem } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import Logout from "@mui/icons-material/Logout";
@@ -37,7 +30,6 @@ const Navbar = () => {
   };
 
   const navigateToProfile = (e) => {
-    auth.user?.role === "ROLE_ADMIN" ||
     auth.user?.role === "ROLE_RESTAURANT_OWNER"
       ? navigate("/admin/restaurant")
       : navigate("/my-profile");
@@ -54,7 +46,7 @@ const Navbar = () => {
     dispatch(logout());
     handleCloseMenu();
   };
-
+  console.log(auth.user);
   return (
     <div className="px-5 z-50 py-[.8rem] bg-[#C5A34F]  lg:px-20 flex justify-between">
       <div className="flex items-center space-x-4">
@@ -65,11 +57,13 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center space-x-2 lg:space-x-10">
-        <div className="">
-          <IconButton onClick={() => navigate("/search")}>
-            <SearchIcon sx={{ fontSize: "1.5rem" }} />
-          </IconButton>
-        </div>
+        {auth?.user?.role === "ROLE_RESTAURANT_OWNER" ? null : (
+          <div className="">
+            <IconButton onClick={() => navigate("/search")}>
+              <SearchIcon sx={{ fontSize: "1.5rem" }} />
+            </IconButton>
+          </div>
+        )}
         <div className="flex items-center space-x-2">
           {auth.user?.fullName ? (
             <span
@@ -114,11 +108,16 @@ const Navbar = () => {
           </Menu>
         </div>
 
-        <IconButton onClick={navigateToCart}>
-          <Badge color="black" badgeContent={cart.cartItems.length}>
-            <ShoppingCartIcon className="text-4xl" sx={{ fontSize: "2rem" }} />
-          </Badge>
-        </IconButton>
+        {auth?.user?.role === "ROLE_RESTAURANT_OWNER" ? null : (
+          <IconButton onClick={navigateToCart}>
+            <Badge color="black" badgeContent={cart.cartItems.length}>
+              <ShoppingCartIcon
+                className="text-4xl"
+                sx={{ fontSize: "2rem" }}
+              />
+            </Badge>
+          </IconButton>
+        )}
 
         {auth?.user && (
           <IconButton onClick={handleLogout}>

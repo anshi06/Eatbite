@@ -17,6 +17,15 @@ const MenuItemCard = ({ item }) => {
   const dispatch = useDispatch();
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
+  const data = {
+    token: localStorage.getItem("jwt"),
+    cartItem: {
+      menuItemId: item._id,
+      quantity: 1,
+      ingredients: selectedIngredients,
+    },
+  };
+
   const handleCheckboxChange = (itemName) => {
     if (selectedIngredients.includes(itemName)) {
       console.log("yes");
@@ -28,20 +37,13 @@ const MenuItemCard = ({ item }) => {
       setSelectedIngredients([...selectedIngredients, itemName]);
     }
   };
-  
+
   const handleAddItemToCart = (e) => {
-    
-    const data = {
-      token: localStorage.getItem("jwt"),
-      cartItem: {
-        menuItemId: item._id,
-        quantity: 1,
-        ingredients:selectedIngredients
-      },
-    };
+    if (!data.token) {
+      return;
+    }
     dispatch(addItemToCart(data));
   };
-  
 
   return (
     <>
@@ -69,8 +71,7 @@ const MenuItemCard = ({ item }) => {
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
+          id="panel1a-header">
           <div className="lg:flex items-center justify-between">
             <div className="lg:flex items-center lg:space-x-5">
               <img
@@ -88,45 +89,53 @@ const MenuItemCard = ({ item }) => {
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <form onSubmit={handleAddItemToCart} >
+          <form onSubmit={handleAddItemToCart}>
             <div className="flex gap-5 flex-wrap">
-               {Object.keys(
-                          categorizedIngredients(item?.ingredients)
-                        )?.map((category) => (
-              <div className="pr-5">
-                
-                <p>{category}</p>
-                <FormGroup >
-                  {categorizedIngredients(item?.ingredients)[
-                                category
-                              ].map((ingredient, index) => (
-                    <FormControlLabel
-                      key={ingredient.name}
-                      control={
-                        <Checkbox
-                          checked={selectedIngredients.includes(
-                            ingredient.name
-                          )}
-                          onChange={() =>
-                            handleCheckboxChange(ingredient.name)
-                          }
-                          disabled={!ingredient.inStoke}
-                        />
-                      }
-                      label={ingredient.name}
-                    />
-                  ))}
-                </FormGroup>
-              </div>
-            ))}
+              {Object.keys(categorizedIngredients(item?.ingredients))?.map(
+                (category) => (
+                  <div className="pr-5">
+                    <p>{category}</p>
+                    <FormGroup>
+                      {categorizedIngredients(item?.ingredients)[category].map(
+                        (ingredient, index) => (
+                          <FormControlLabel
+                            key={ingredient.name}
+                            control={
+                              <Checkbox
+                                checked={selectedIngredients.includes(
+                                  ingredient.name
+                                )}
+                                onChange={() =>
+                                  handleCheckboxChange(ingredient.name)
+                                }
+                                disabled={!ingredient.inStoke}
+                              />
+                            }
+                            label={ingredient.name}
+                          />
+                        )
+                      )}
+                    </FormGroup>
+                  </div>
+                )
+              )}
             </div>
-           
 
             <div className="pt-5">
-              <Button variant="contained" disabled={!item.available} type="submit">
-                {item.available?"Add To Cart":"Out of stock"}
+              <Button
+                variant="contained"
+                disabled={!item.available || !data.token}
+                type="submit">
+                {item.available ? "Add To Cart" : "Out of stock"}
               </Button>
             </div>
+            {!data.token && (
+              <div className="bg-yellow-200 text-yellow-800 p-4 mt-3 text-center">
+                <p class="font-semibold">
+                  Warning: Please login before adding items into cart.
+                </p>
+              </div>
+            )}
           </form>
         </AccordionDetails>
       </Accordion>

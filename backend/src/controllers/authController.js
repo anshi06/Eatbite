@@ -12,7 +12,7 @@ const register = async (req, res) => {
 
     await cartService.createCart(user);
 
-    return res.status(200).send({ jwt, message: "register success" });
+    return res.status(200).send({ jwt, message: "register success", role: user.role });
   } catch (error) {
     return res.status(500).send({ error: error.message });
   }
@@ -36,7 +36,7 @@ const login = async (req, res) => {
 
     const jwt = jwtProvider.generateToken(user._id);
 
-    return res.status(200).send({ jwt, message: "login success" });
+    return res.status(200).send({ jwt, message: "login success", role: user.role });
   } catch (error) {
     return res.status(500).send({ error: error.message });
   }

@@ -9,9 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     enum: [
       "ROLE_CUSTOMER",
-      "ROLE_RESTAURANT_OWNER",
-      "ROLE_RESTAURANT_MANAGER",
-      "ROLE_ADMIN",
+      "ROLE_RESTAURANT_OWNER"
     ],
   },
   orders: [

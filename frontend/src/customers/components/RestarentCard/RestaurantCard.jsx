@@ -56,7 +56,7 @@ const RestaurantCard = ({ data, index }) => {
         <div>
           <IconButton onClick={handleAddToFavorites}>
             {isPresentInFavorites(auth.favorites, data) ? (
-              <FavoriteIcon color="primary" />
+              <FavoriteIcon color="error" />
             ) : (
               <FavoriteBorderIcon />
             )}

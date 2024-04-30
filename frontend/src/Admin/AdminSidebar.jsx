@@ -17,7 +17,6 @@ import CategoryIcon from "@mui/icons-material/Category";
 import FastfoodIcon from "@mui/icons-material/Fastfood";
 
 const menu = [
-  { title: "Go Back", icon: <ArrowCircleLeft />, path: "/" },
   { title: "Dashboard", icon: <Dashboard />, path: "/" },
   { title: "Orders", icon: <ShoppingBagIcon />, path: "/orders" },
   { title: "Menu", icon: <ShopTwoIcon />, path: "/menu" },
@@ -34,9 +33,6 @@ export default function AdminSidebar({ handleClose, open }) {
 
   const handleNavigate = (item) => {
     navigate(`/admin/restaurant${item.path}`);
-    if (item.title === "Go Back") {
-      navigate("/");
-    }
     if (item.title === "Logout") {
       navigate("/");
       dispatch(logout());
