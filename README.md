@@ -5,6 +5,13 @@
 * Cloudinary to use pictures and uploading images
 * Able to add restaurant owner and restaurant
 * Stripe payment
+* Checkout
+* Search
+* Filter
+* Add to favourites
+* Login as admin
+* Login as customer
+  
 
 1> User = null
 2> User = customer
