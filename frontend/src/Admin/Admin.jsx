@@ -18,7 +18,6 @@ import {
 import { getRestaurantsCategory } from "../State/Customers/Restaurant/restaurant.action";
 import Details from "./Details/Details";
 import AdminNavbar from "./AdminNavbar";
-import { getUsersOrders } from "../State/Customers/Orders/Action";
 import { fetchRestaurantsOrder } from "../State/Admin/Order/restaurants.order.action";
 
 const Admin = () => {

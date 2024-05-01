@@ -13,9 +13,7 @@ import {
   createEventAction,
   getRestaurnatsEvents,
 } from "../../State/Customers/Restaurant/restaurant.action";
-import { useParams } from "react-router-dom";
 import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import EventCard from "./EventCard";

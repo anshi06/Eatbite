@@ -19,21 +19,11 @@ import {
   Typography,
 } from "@mui/material";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchRestaurantsOrder,
-  updateOrderStatus,
-} from "../../State/Admin/Order/restaurants.order.action";
-// import {
-//   confirmOrder,
-//   deleteOrder,
-//   deliveredOrder,
-//   getOrders,
-//   shipOrder,
-// } from "../../state/Admin/Order/Action";
+import { updateOrderStatus } from "../../State/Admin/Order/restaurants.order.action";
 
 const orderStatus = [
   { label: "Pending", value: "PENDING" },
@@ -65,7 +55,7 @@ const OrdersTable = ({ isDashboard, name }) => {
 
   const handleUpdateOrder = (orderId, orderStatus, index) => {
     handleUpdateStatusMenuClose(index);
-    dispatch(updateOrderStatus({ orderId, orderStatus,jwt }));
+    dispatch(updateOrderStatus({ orderId, orderStatus, jwt }));
   };
 
   // console.log("restaurants orders store ", restaurantsOrder)
@@ -85,15 +75,15 @@ const OrdersTable = ({ isDashboard, name }) => {
           <Table sx={{}} aria-label="table in dashboard">
             <TableHead>
               <TableRow>
-              <TableCell>Id</TableCell>
+                <TableCell>Id</TableCell>
                 <TableCell>Image</TableCell>
                 {/* {!isDashboard && <TableCell>Title</TableCell>} */}
                 <TableCell>Customer</TableCell>
                 <TableCell>Price</TableCell>
-             
+
                 <TableCell>Name</TableCell>
                 {!isDashboard && <TableCell>Ingredients</TableCell>}
-                {!isDashboard &&<TableCell>Status</TableCell>}
+                {!isDashboard && <TableCell>Status</TableCell>}
                 {!isDashboard && (
                   <TableCell sx={{ textAlign: "center" }}>Update</TableCell>
                 )}
@@ -112,8 +102,7 @@ const OrdersTable = ({ isDashboard, name }) => {
                     key={item._id}
                     sx={{
                       "&:last-of-type td, &:last-of-type th": { border: 0 },
-                    }}
-                  >
+                    }}>
                     <TableCell>{item?._id}</TableCell>
                     <TableCell sx={{}}>
                       <AvatarGroup max={4} sx={{ justifyContent: "start" }}>
@@ -126,53 +115,51 @@ const OrdersTable = ({ isDashboard, name }) => {
                       </AvatarGroup>{" "}
                     </TableCell>
 
-                    <TableCell sx={{}}>
-                      {item?.customer.email}
-                    </TableCell>
+                    <TableCell sx={{}}>{item?.customer.email}</TableCell>
 
                     <TableCell>₹{item?.totalAmount}</TableCell>
-                    
+
                     <TableCell className="">
                       {item.items.map((orderItem) => (
-                        <p>
-                          {orderItem.food?.name}
-                        </p>
+                        <p>{orderItem.food?.name}</p>
                       ))}
                     </TableCell>
-                  {!isDashboard &&  <TableCell className="space-y-2">
-                      {item.items.map((orderItem) =>
-                      <div className="flex gap-1 flex-wrap">
-                       { orderItem.ingredients?.map((ingre) => (
-                          <Chip label={ingre} />
+                    {!isDashboard && (
+                      <TableCell className="space-y-2">
+                        {item.items.map((orderItem) => (
+                          <div className="flex gap-1 flex-wrap">
+                            {orderItem.ingredients?.map((ingre) => (
+                              <Chip label={ingre} />
+                            ))}
+                          </div>
                         ))}
-                      </div>
-                        
-                      )}
-                    </TableCell>}
-                    {!isDashboard &&<TableCell className="text-white">
-                      <Chip
-                        sx={{
-                          color: "white !important",
-                          fontWeight: "bold",
-                          textAlign: "center",
-                        }}
-                        label={item?.orderStatus}
-                        size="small"
-                        color={
-                          item.orderStatus === "PENDING"
-                            ? "info"
-                            : item?.orderStatus === "DELIVERED"
-                            ? "success"
-                            : "secondary"
-                        }
-                        className="text-white"
-                      />
-                    </TableCell>}
+                      </TableCell>
+                    )}
+                    {!isDashboard && (
+                      <TableCell className="text-white">
+                        <Chip
+                          sx={{
+                            color: "white !important",
+                            fontWeight: "bold",
+                            textAlign: "center",
+                          }}
+                          label={item?.orderStatus}
+                          size="small"
+                          color={
+                            item.orderStatus === "PENDING"
+                              ? "info"
+                              : item?.orderStatus === "DELIVERED"
+                              ? "success"
+                              : "secondary"
+                          }
+                          className="text-white"
+                        />
+                      </TableCell>
+                    )}
                     {!isDashboard && (
                       <TableCell
                         sx={{ textAlign: "center" }}
-                        className="text-white"
-                      >
+                        className="text-white">
                         <div>
                           <Button
                             id={`basic-button-${item?._id}`}
@@ -181,8 +168,7 @@ const OrdersTable = ({ isDashboard, name }) => {
                             aria-expanded={Boolean(anchorElArray[index])}
                             onClick={(event) =>
                               handleUpdateStatusMenuClick(event, index)
-                            }
-                          >
+                            }>
                             Status
                           </Button>
                           <Menu
@@ -192,14 +178,12 @@ const OrdersTable = ({ isDashboard, name }) => {
                             onClose={() => handleUpdateStatusMenuClose(index)}
                             MenuListProps={{
                               "aria-labelledby": `basic-button-${item._id}`,
-                            }}
-                          >
+                            }}>
                             {orderStatus.map((s) => (
                               <MenuItem
                                 onClick={() =>
                                   handleUpdateOrder(item._id, s.value, index)
-                                }
-                              >
+                                }>
                                 {s.label}
                               </MenuItem>
                             ))}
@@ -226,12 +210,10 @@ const OrdersTable = ({ isDashboard, name }) => {
           </Table>
         </TableContainer>
       </Card>
-      
 
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={restaurantsOrder.loading}
-      >
+        open={restaurantsOrder.loading}>
         <CircularProgress color="inherit" />
       </Backdrop>
     </Box>

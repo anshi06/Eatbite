@@ -53,7 +53,6 @@ export const getMenuItemsByRestaurantId = (reqData) => {
           },
         }
       );
-      console.log("menu item by restaurants ", data);
       dispatch(getMenuItemsByRestaurantIdSuccess(data));
     } catch (error) {
       dispatch(getMenuItemsByRestaurantIdFailure(error));
