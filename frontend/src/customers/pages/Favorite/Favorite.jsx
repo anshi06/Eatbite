@@ -5,9 +5,6 @@ import { useSelector } from "react-redux";
 const Favorite = () => {
   const { auth } = useSelector((store) => store);
 
-  useEffect(() => {
-    // dispatch()
-  }, []);
   return (
     <>
       <h1 className="py-5 text-xl font-semibold text-center">My Favorites</h1>
