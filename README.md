@@ -11,6 +11,7 @@
 * Add to favourites
 * Login as admin
 * Login as customer
+* Calender events
   
 
 1> User = null
