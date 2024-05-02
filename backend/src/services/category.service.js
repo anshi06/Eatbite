@@ -1,8 +1,6 @@
 const Category = require("../models/category.model");
 const Restaurant = require("../models/restaurant.model");
 
-
-
 module.exports = {
   async createCategory(name, userId) {
     try {

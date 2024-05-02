@@ -49,7 +49,7 @@ module.exports = {
     foodCategory
   ) {
     try {
-      let category = await Category.findOne({ name: foodCategory });
+      let category = await Category.findOne({ name: foodCategory, restaurant: restaurantId });
       let query = { restaurant: restaurantId };
       if (nonveg.trim() == "true") {
         query.isVegetarian = false;
