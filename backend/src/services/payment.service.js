@@ -6,8 +6,8 @@ module.exports = {
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         mode: 'payment',
-        success_url: `http://localhost:3000/payment/success/${order._id}`,
-        cancel_url: 'http://localhost:3000/cancel',
+        success_url: `https://eatbite-frontend.vercel.app/payment/success/${order._id}`,
+        cancel_url: 'https://eatbite-frontend.vercel.app/cancel',
         line_items: [
           {
             price_data: {

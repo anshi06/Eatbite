@@ -105,7 +105,7 @@ const HomePage = () => {
               <RestaurantCard data={item} index={i} />
             ))
           ) : (
-            <NotFound text="No restaurants found." />
+            <NotFound text="Please wait we are loading restaurants for you" />
           )}
         </div>
       </section>
