@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center space-x-2 lg:space-x-10">
-        {auth?.user?.role === "ROLE_RESTAURANT_OWNER" ? null : (
+        {auth?.user?.role === "ROLE_RESTAURANT_OWNER" ? <h1>Admin</h1> : (
           <div className="">
             <IconButton onClick={() => navigate("/search")}>
               <SearchIcon sx={{ fontSize: "1.5rem" }} />

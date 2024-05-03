@@ -19,8 +19,6 @@ import {
   UPDATE_MENU_ITEMS_AVAILABILITY_SUCCESS,
 } from "./ActionType";
 
-// localhost:5454/api/admin/ingredients/food/16
-
 export const createMenuItem = ({menu,jwt}) => {
   return async (dispatch) => {
     dispatch(createMenuItemRequest());
