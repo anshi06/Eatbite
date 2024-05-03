@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = "http://localhost:5454";
+export const API_URL = "https://eatbite-o1swj7xv6-anshika-upadhyays-projects.vercel.app/";
 
 
 export const api = axios.create({
