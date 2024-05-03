@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-connectToDB();
+await connectToDB().then(() => {console.log('Connected to mongoDB')}).catch((err) => {console.log("Error in connecting db", err)});
 
 app.use(cors());
 
