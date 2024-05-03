@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-await connectToDB().then(() => {console.log('Connected to mongoDB')}).catch((err) => {console.log("Error in connecting db", err)});
+connectToDB();
 
 app.use(cors());
 
@@ -62,10 +62,10 @@ app.use("/api/events", eventRoutes);
 const adminEventRoutes = require("./routes/adminEventRoutes.js");
 app.use("/api/admin/events", adminEventRoutes);
 
-// const PORT=5454;
-// app.listen(PORT,async ()=>{
-//     await connectToDB()
-//     console.log("food ordering server running on port ",PORT)
-// })
+const PORT=5454;
+app.listen(PORT,async ()=>{
+    await connectToDB()
+    console.log("food ordering server running on port ",PORT)
+})
 
 module.exports = app;
