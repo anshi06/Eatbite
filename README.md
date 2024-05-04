@@ -54,13 +54,8 @@
 ## About The Project
 This project is a web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) for ordering food online. The application allows users to browse through various restaurants, view their menus, and place orders for delivery or pickup. It incorporates features such as user authentication, cart management, order tracking, and restaurant management.
 
-[![Eatbite][pic-1]]('/images/CustomDash.jpeg')
-[![Eatbite][pic-2]]('/images/Login.jpeg')
-[![Eatbite][pic-3]]('/images/AdminDash.jpeg')
-[![Eatbite][pic-4]]('/images/MenuRest.jpeg')
-[![Eatbite][pic-5]]('/images/OrderAndCustomCart.jpeg')
-[![Eatbite][pic-6]]('/images/Payment.jpeg')
-[![Eatbite][pic-7]]('/images/others.jpeg')
+[![Eatbite][pics]]('/images/pics.jpg')
+
 
 
 ### Learning Experience: 
@@ -215,13 +210,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]:https://github.com/anshi06/Eatbite/blob/master/LICENSE
 [license-shield]: https://img.shields.io/badge/licence-MTS-blue
 
-[pic-1]: images/CustomDash.jpeg
-[pic-2]: images/Login.jpeg
-[pic-3]: images/AdminDash.jpeg
-[pic-4]: images/MenuRest.jpeg
-[pic-5]: images/OrderAndCustomCart.jpeg
-[pic-6]: images/Payment.jpeg
-[pic-7]: images/others.jpeg
+[pics]: images/pics.jpg
 
 
 [product-screenshot]: images/screenshot.png
