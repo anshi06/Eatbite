@@ -79,6 +79,7 @@ Building a food ordering app using the MERN stack offers valuable insights into 
 * ![MUI][MUI]
 * ![Axios][Axios]
 * ![DayJs][DayJs]
+* ![ReactRouter][ReactRouter]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -236,3 +237,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [MUI]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white
 [Axios]: https://img.shields.io/badge/Axios-005571?style=for-the-badge&logo=axios
 [DayJs]: https://img.shields.io/badge/day.js-white.svg?style=for-the-badge&logo=day.js&logoColor=%238BC0D0
+[ReactRouter]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
