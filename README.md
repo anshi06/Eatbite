@@ -99,7 +99,7 @@ Building a food ordering app using the MERN stack offers valuable insights into 
 ## Usage
 
 ### Authentication
-* Login and Register: Users can register for an account as either a customer or a restaurant owner. Registered users can log in to access the full features of the application.
+* **Login and Register**: Users can register for an account as either a customer or a restaurant owner. Registered users can log in to access the full features of the application.
   
 ### Customer Features
 * **Restaurant Listing**: Browse through a variety of restaurants and their menus.
