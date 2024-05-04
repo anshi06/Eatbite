@@ -66,15 +66,19 @@ Building a food ordering app using the MERN stack offers valuable insights into 
 
 
 ### Built With
-* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
+* [![Mongodb][Mongo]][Mongo-url]
+* [![Node][Node.js]][Node-url]
+* [![Javascript][Javascript]][Js-url]
+* [![CSS][CSS]][Css-url]
+* ![Redux][Redux]
+* ![Express][Express]
+* ![JWT][JWT]
+* ![Stripe][Stripe]
+* ![Cloudinary][Cloudinary]
+* ![MUI][MUI]
+* ![Axios][Axios]
+* ![DayJs][DayJs]
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -212,21 +216,23 @@ Use this space to list resources you find helpful and would like to give credit 
 
 [pics]: images/pics.jpg
 
-
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[Mongo]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[Mongo-url]: https://mongoosejs.com/
+[Express.js]: https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white
+[Express-url]:https://expressjs.com/
+[Node.js]: https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
+[Node-url]:https://nodejs.org/en
+[Javascript]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[Js-url]:https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[Css-url]:https://css3.com/
+[CSS]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[Redux]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
+[Express]: https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB
+[JWT]: https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens
+[Stripe]:https://img.shields.io/badge/Stripe-E60012?style=for-the-badge&logo=stripe&logoColor=white
+[Cloudinary]: https://img.shields.io/badge/Cloudinary-2185D0?style=for-the-badge&logo=Cloudinary&logoColor=white
+[MUI]: https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white
+[Axios]: https://img.shields.io/badge/Axios-005571?style=for-the-badge&logo=axios
+[DayJs]: https://img.shields.io/badge/day.js-white.svg?style=for-the-badge&logo=day.js&logoColor=%238BC0D0
