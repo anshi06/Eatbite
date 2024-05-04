@@ -98,9 +98,29 @@ Building a food ordering app using the MERN stack offers valuable insights into 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Authentication
+* Login and Register: Users can register for an account as either a customer or a restaurant owner. Registered users can log in to access the full features of the application.
+  
+### Customer Features
+* **Restaurant Listing**: Browse through a variety of restaurants and their menus.
+* **Food Search**: Search for your favorite food items by name.
+* **Filtering**: Filter meals by veg and non-veg options or by categories provided by the restaurant.
+* **Order Placement**: Add items to your cart and proceed to checkout. Update cart according to your hunger.
+* **Order Tracking**: Track the status of your recent orders, including pending, completed, out for delivery, or delivered.
+* **Favorite Restaurants**: Mark your favorite restaurants for quick access and unmark them if needed.
+* **Address Management**: View and manage your added addresses for delivery.
+* **Event Viewing**: Explore events offered by restaurants, including details such as start and end dates.
+* **Profile Viewing**: Visit restaurant profiles to select your favorite meals.
+* **Checkout**: Complete the payment process securely using Stripe payment integration.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Restaurant Owner Features
+* **Dashboard**: Access a dedicated dashboard to manage restaurant-related activities.
+* **Order Management**: Accept or reject orders, update order statuses (pending, completed, out for delivery), and mark orders as delivered.
+* **Menu Management**: Add, delete, or update menu items. Set items as in stock or out of stock.
+* **Event Management**: Add or delete events related to the restaurant. Set up event start and end dates.
+* **Restaurant Status**: Open or close the restaurant for orders.
+* **Image Upload**: Upload restaurant pictures and food item pictures to Cloudinary for display.
+* **Recent Orders**: Check recent orders and filter them by pending, completed, or delivery status.  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
