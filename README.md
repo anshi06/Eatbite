@@ -48,7 +48,7 @@
 ## About The Project
 This project is a web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js) for ordering food online. The application allows users to browse through various restaurants, view their menus, and place orders for delivery or pickup. It incorporates features such as user authentication, cart management, order tracking, and restaurant management.
 
-[![Eatbite][pics]]('/images/pics.jpg')
+[![Eatbite][pics]]('images/pics.jpg')
 
 
 
